@@ -4,6 +4,7 @@ import android.app.Service;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.IBinder;
+import android.provider.MediaStore;
 import android.util.Log;
 
 import androidx.annotation.Nullable;
@@ -16,6 +17,14 @@ public class PlayBabySharkService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         //TODO 3A: play baby shark dari R.raw di sini
         if(mediaPlayer == null){
+            // create
+            mediaPlayer = MediaPlayer.create(this, R.raw.mybaby_shark);
+
+            // config
+            mediaPlayer.setLooping(true);
+
+            // action
+            mediaPlayer.start();
 
         }
 
@@ -26,6 +35,16 @@ public class PlayBabySharkService extends Service {
     public void onDestroy() {
         super.onDestroy();
         //TODO 3B: stop media player
+        if (mediaPlayer != null) {
+            // stop
+            mediaPlayer.stop();
+
+            // release
+            mediaPlayer.release();
+
+            //nullify
+            mediaPlayer = null;
+        }
 
     }
 

@@ -37,15 +37,17 @@ public class DanceFragment extends Fragment {
         binding.btnPlayStop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), PlayBabySharkService.class);
                 //TODO 3C: play baby shark dari PlayBabySharkService
                 if(binding.btnPlayStop.getText().equals("Play")){
-                    //code here
+                    // turn on
+                    getActivity().startService(intent);
 
                     binding.btnPlayStop.setText("Stop");
                 }
                 else{
                     //code here
-
+                    getActivity().stopService(intent);
                     binding.btnPlayStop.setText("Play");
                 }
 
