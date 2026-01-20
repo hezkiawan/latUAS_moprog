@@ -36,10 +36,31 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.bottomNav);
 
         //TODO 1A: by default tampilin DdolFragment
-
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.frameLayout, new DdolFragment())
+                    .commit();
+        }
 
         //TODO 1B: atur kalau tiap menu di klik, tampilkan fragment yang sesuai
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Fragment selectedFragment = null;
 
+                if (item.getItemId() == R.id.menu_ddol){
+                    selectedFragment = new DdolFragment();
+                } else if (item.getItemId() == R.id.menu_dance){
+                    selectedFragment = new DanceFragment();
+                }
+
+                if(selectedFragment != null){
+                    getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, selectedFragment).commit();
+                    return true;
+                }
+                return false;
+            }
+        });
 
     }
 }
