@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.DdolFragment"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp">
+        <Button
+            android:id="@+id/btnGetAnother"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:backgroundTint="#000"
+            android:textColor="@color/white"
+            android:text="Get another dose of laughter"/>
+
+        <TextView
+            android:id="@+id/txtSetup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="#000000"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:text="Setup"
+            android:layout_marginVertical="10dp"/>
+
+        <Button
+            android:id="@+id/btnReveal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Reveal"
+            android:layout_below="@id/txtSetup"
+            android:layout_centerHorizontal="true"
+            android:backgroundTint="#3F51B5"/>
+
+        <TextView
+            android:id="@+id/txtPunchline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:text="Punchline"
+            android:fontFamily="monospace"
+            android:layout_marginVertical="10dp"
+            android:layout_below="@id/btnReveal"/>
+    </RelativeLayout>
+
+
+
+</FrameLayout>
